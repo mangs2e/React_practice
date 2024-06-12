@@ -25,19 +25,21 @@ function App() {
       <h1>My Hacker Stories</h1>
       <Search />
       <hr />
-      <List />
+      <List title="first list" list={list} />
     </div>
   );
 }
 
-function List() {
+// List 컴포넌트 정의부
+function List({ title, list }) {
   return (
     <div>
+      <h1>{title}</h1>
       {list.map(function (item) {
         return (
           <div key={item.objectID}>
             <span>
-              <a href={item.url}>{item.title}</a>
+              <a href={item.url}>{item.title}</a>:
             </span>
             <span>{item.author}</span>
             <span>{item.num_comments}</span>
