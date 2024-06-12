@@ -19,37 +19,36 @@ const list = [
     objectID: 1,
   },
 ];
-function App() {
+const App = () => {
   return (
     <div>
       <h1>My Hacker Stories</h1>
       <Search />
       <hr />
-      <List title="first list" list={list} />
+      <List />
     </div>
   );
-}
+};
 
 // List 컴포넌트 정의부
-function List({ title, list }) {
-  return (
-    <div>
-      <h1>{title}</h1>
-      {list.map(function (item) {
+const List = () => {
+  return list.map((item) => {
+    return (
+      <div>
         return (
-          <div key={item.objectID}>
-            <span>
-              <a href={item.url}>{item.title}</a>:
-            </span>
-            <span>{item.author}</span>
-            <span>{item.num_comments}</span>
-            <span>{item.points}</span>
-          </div>
+        <div key={item.objectID}>
+          <span>
+            <a href={item.url}>{item.title}</a>:
+          </span>
+          <span>{item.author}</span>
+          <span>{item.num_comments}</span>
+          <span>{item.points}</span>
+        </div>
         );
-      })}
-    </div>
-  );
-}
+      </div>
+    );
+  });
+};
 
 function Search() {
   return (
